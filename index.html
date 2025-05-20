@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foco Solar EcoLuz</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <script>
+    // Objeto con todas las traducciones
+    const translations = {
+      es: {
+        title: "EcoLuz",
+        menu_benefits: "Beneficios",
+        menu_features: "Características",
+        menu_contact: "Contacto",
+        menu_how: "Cómo Funciona",
+        menu_app: "App Móvil", 
+        menu_compare: "Comparativa",
+        hero_title: "Ilumina con Energía del Sol",
+        hero_subtitle: "Tecnología solar avanzada para un futuro brillante",
+        hero_description: "EcoLuz es un sistema de iluminación solar inteligente que transforma la energía del sol en luz brillante. Ideal para ahorrar electricidad y cuidar el medio ambiente.",
+        cta_button: "¡Contáctanos ahora!",
+        benefits_title: "Beneficios Clave",
+        benefit_eco: "Ecológico",
+        benefit_eco_desc: "Reduce la huella de carbono al usar energía 100% renovable con cero emisiones.",
+        benefit_economic: "Ahorro Garantizado",
+        benefit_economic_desc: "Reduce tu factura eléctrica hasta un 70% desde el primer mes de uso.",
+        benefit_install: "Instalación Inteligente",
+        benefit_install_desc: "Sistema plug & play sin cables ni complicaciones. Funciona en cualquier lugar.",
+        benefit_durable: "Durabilidad",
+        benefit_durable_desc: "Diseñado para resistir condiciones climáticas extremas con 5 años de garantía.",
+        features_title: "Tecnología Avanzada",
+        features_subtitle: "Innovación que ilumina",
+        feature1_title: "Panel Solar de Alta Eficiencia",
+        feature1_desc: "Captura hasta un 25% más de energía que paneles convencionales.",
+        feature2_title: "Batería de Larga Duración",
+        feature2_desc: "Almacenamiento de energía para hasta 3 noches consecutivas sin sol.",
+        feature3_title: "Foco led de alta eficiencia",
+        feature3_desc: "Uso de bombilla LED que se ocupa reduce el consumo de energía eléctrica en el hogar y en cualquier otro espacio. Su eficiencia, durabilidad, calidad y respeto por el medio ambiente la convierten en la solución ideal para iluminar de forma sostenible y económica.",
+        feature4_title: "Diseño ecológico y durable",
+        feature4_desc: "Nuestra lámpara está diseñada pensando en el planeta: fabricada con materiales reciclables, resistente al clima, y con una larga vida útil, ofrece iluminación eficiente y ecológica, ideal para un futuro más limpio y sostenible.",
+        how_title: "Cómo Funciona EcoLuz",
+        how_step1: "Captación Solar",
+        how_step1_desc: "Los paneles absorben la energía solar durante el día",
+        how_step2: "Almacenamiento",
+        how_step2_desc: "La energía se guarda en baterías de alta capacidad",
+        how_step3: "Distribución",
+        how_step3_desc: "La energía se convierte y distribuye según necesidad",
+        how_step4: "Disfruta",
+        how_step4_desc: "Iluminación automática cuando la necesites",
+        app_title: "Control Inteligente",
+        app_subtitle: "Gestiona tu EcoLuz desde cualquier lugar",
+        app_feature1: "Programación horaria",
+        app_feature2: "Ajuste de intensidad",
+        app_feature3: "Monitorización de energía",
+        app_feature4: "Alertas y notificaciones",
+        compare_title: "EcoLuz vs. Iluminación Tradicional",
+        compare_ecoluz: "EcoLuz",
+        compare_traditional: "Tradicional",
+        compare_cost: "Costo anual",
+        compare_cost_ecoluz: "$600",
+        compare_cost_trad: "$3,500", 
+        compare_lifespan: "Vida útil",
+        compare_lifespan_ecoluz: "10 años",
+        compare_lifespan_trad: "2 años",
+        compare_energy: "Consumo",
+        compare_energy_ecoluz: "0 kWh",
+        compare_energy_trad: "350 kWh/año",
+        testimonials_title: "Clientes Satisfechos",
+        testimonial1: "Desde que instalé EcoLuz, mi factura bajó un 60%. ¡Increíble!",
+        testimonial1_author: "Carlos M., Jalisco",
+        testimonial2: "La instalación fue tan fácil que lo hice yo mismo en 10 minutos. Funciona perfecto!",
+        testimonial2_author: "Ana T., Quintana Roo",
+        contact_title: "¿Listo para el cambio?",
+        contact_subtitle: "Únete a la revolución solar",
+        contact_name: "Nombre",
+        contact_email: "Email",
+        contact_phone: "Teléfono",
+        contact_message: "Mensaje",
+        contact_button: "Enviar consulta",
+        footer_about: "Sobre EcoLuz",
+        footer_about_text: "Líderes en tecnología solar residencial desde 2020.",
+        footer_links: "Enlaces rápidos",
+        footer_contact: "Contacto",
+        footer_address: "Wix Ecomerce",
+        footer_email: "hola@ecoluz.mx",
+        footer_phone: "+52 55 3654 9308",
+        footer_text: "© 2025 EcoLuz. Todos los derechos reservados.",
+        footer_social: "Síguenos"
+      },
+      en: {
+        title: "EcoLuz Solar",
+        menu_benefits: "Benefits",
+        menu_features: "Features",
+        menu_contact: "Contact",
+        menu_how: "How It Works",
+        menu_app: "Mobile App",
+        menu_compare: "Comparison",
+        hero_title: "Light Powered by the Sun",
+        hero_subtitle: "Advanced solar technology for a bright future",
+        hero_description: "EcoLuz is an intelligent solar lighting system that converts sunlight into bright light. Ideal for saving electricity and protecting the environment.",
+        cta_button: "Contact Us Now!",
+        benefits_title: "Key Benefits",
+        benefit_eco: "Eco-friendly",
+        benefit_eco_desc: "Reduces your carbon footprint using 100% renewable energy with zero emissions.",
+        benefit_economic: "Guaranteed Savings",
+        benefit_economic_desc: "Reduce your power bill by up to 70% from the first month of use.",
+        benefit_install: "Smart Installation",
+        benefit_install_desc: "Plug & play system with no cables or hassle. Works anywhere.",
+        benefit_durable: "Durability",
+        benefit_durable_desc: "Designed to withstand extreme weather conditions with 5-year warranty.",
+        features_title: "Advanced Technology",
+        features_subtitle: "Innovation that illuminates",
+        feature1_title: "High Efficiency Solar Panel",
+        feature1_desc: "Captures up to 25% more energy than conventional panels.",
+        feature2_title: "Long-lasting Battery",
+        feature2_desc: "Energy storage for up to 3 consecutive nights without sun.",
+        feature3_title: "Focus led the high efficiency",
+        feature3_desc: "Using energy-efficient LED bulbs reduces electricity consumption in the home and elsewhere. Their efficiency, durability, quality, and environmental friendliness make them the ideal solution for sustainable and economical lighting.",
+        feature4_title: "Eco-friendly and durable design",
+        feature4_desc: "Our lamp is designed with the planet in mind: made with recyclable materials, weather-resistant, and with a long lifespan, it offers efficient and eco-friendly lighting, ideal for a cleaner, more sustainable future.",
+        how_title: "How EcoLuz Works",
+        how_step1: "Solar Capture",
+        how_step1_desc: "Panels absorb solar energy during the day",
+        how_step2: "Storage",
+        how_step2_desc: "Energy is stored in high-capacity batteries",
+        how_step3: "Distribution",
+        how_step3_desc: "Energy is converted and distributed as needed",
+        how_step4: "Enjoy",
+        how_step4_desc: "Automatic lighting when you need it",
+        app_title: "Smart Control",
+        app_subtitle: "Manage your EcoLuz from anywhere",
+        app_feature1: "Schedule timing",
+        app_feature2: "Brightness adjustment",
+        app_feature3: "Energy monitoring",
+        app_feature4: "Alerts and notifications",
+        compare_title: "EcoLuz vs Traditional Lighting",
+        compare_ecoluz: "EcoLuz",
+        compare_traditional: "Traditional",
+        compare_cost: "Annual cost",
+        compare_cost_ecoluz: "$600",
+        compare_cost_trad: "$3,500",
+        compare_lifespan: "Lifespan",
+        compare_lifespan_ecoluz: "10 years",
+        compare_lifespan_trad: "2 years",
+        compare_energy: "Consumption",
+        compare_energy_ecoluz: "0 kWh",
+        compare_energy_trad: "350 kWh/year",
+        testimonials_title: "Satisfied Customers",
+        testimonial1: "Since I installed EcoLuz, my bill dropped 60%. Amazing!",
+        testimonial1_author: "Carlos M., Jalisco",
+        testimonial2: "Installation was so easy I did it myself in 10 minutes. Works perfectly!",
+        testimonial2_author: "Ana T., Quintana Roo",
+        contact_title: "Ready for the change?",
+        contact_subtitle: "Join the solar revolution",
+        contact_name: "Name",
+        contact_email: "Email",
+        contact_phone: "Phone",
+        contact_message: "Message",
+        contact_button: "Send inquiry",
+        footer_about: "About EcoLuz",
+        footer_about_text: "Leaders in residential solar technology since 2020.",
+        footer_links: "Quick Links",
+        footer_contact: "Contact",
+        footer_address: "Wix Ecomerce",
+        footer_email: "hello@ecoluz.mx",
+        footer_phone: "+52 55 3654 9308",
+        footer_text: "© 2025 EcoLuz. All rights reserved.",
+        footer_social: "Follow Us"
+      }
+    };
+
+    // Función para cambiar el idioma
+    function changeLanguage(lang) {
+      document.documentElement.lang = lang;
+      const elements = document.querySelectorAll("[data-i18n]");
+      elements.forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+    }
+
+    // Inicializar con español
+    document.addEventListener("DOMContentLoaded", () => {
+      changeLanguage("es");
+      
+      // Animaciones al hacer scroll
+      const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.scroll-animate');
+        elements.forEach(element => {
+          const elementPosition = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          
+          if (elementPosition < windowHeight - 100) {
+            element.classList.add('animate__animated', 'animate__fadeInUp');
+          }
+        });
+      };
+      
+      window.addEventListener('scroll', animateOnScroll);
+      animateOnScroll(); // Ejecutar al cargar para elementos visibles
+      
+      // Efecto parallax
+      const parallaxElements = document.querySelectorAll('.parallax');
+      window.addEventListener('scroll', () => {
+        const scrollValue = window.scrollY;
+        parallaxElements.forEach(element => {
+          const speed = parseFloat(element.getAttribute('data-speed')) || 0.3;
+          element.style.transform = `translateY(${scrollValue * speed}px)`;
+        });
+      });
+    });
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+    
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .testimonial-card {
+      transition: all 0.3s ease;
+    }
+    
+    .testimonial-card:hover {
+      transform: scale(1.03);
+    }
+    
+    .feature-icon {
+      transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover .feature-icon {
+      transform: scale(1.1) rotate(5deg);
+      color: #10b981;
+    }
+    
+    .btn-hover {
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-hover:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-hover:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: -100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: all 0.5s ease;
+    }
+    
+    .btn-hover:hover:after {
+      left: 100%;
+    }
+    
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+    
+    .how-step {
+      position: relative;
+      padding-left: 80px;
+      margin-bottom: 40px;
+    }
+    
+    .how-step-number {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 60px;
+      height: 60px;
+      background-color: #10b981;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .comparison-table th, .comparison-table td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .comparison-table th {
+      background-color: #f9fafb;
+      font-weight: 600;
+    }
+    
+    .comparison-table tr:nth-child(even) {
+      background-color: #f9fafb;
+    }
+    
+    .comparison-table .highlight {
+      background-color: #d1fae5;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Encabezado -->
+  <header class="fixed w-full bg-white shadow-md z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="flex items-center">
+        <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white mr-3">
+          <i class="fas fa-sun text-xl"></i>
+        </div>
+        <h1 class="text-2xl font-bold text-green-600" data-i18n="title">EcoLuz Solar</h1>
+      </a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#beneficios" class="hover:text-green-600 transition" data-i18n="menu_benefits">Beneficios</a>
+        <a href="#caracteristicas" class="hover:text-green-600 transition" data-i18n="menu_features">Características</a>
+        <a href="#funcionamiento" class="hover:text-green-600 transition" data-i18n="menu_how">Cómo Funciona</a>
+        <a href="#comparativa" class="hover:text-green-600 transition" data-i18n="menu_compare">Comparativa</a>
+        <a href="#testimonios" class="hover:text-green-600 transition">Testimonios</a>
+        <a href="#contacto" class="hover:text-green-600 transition" data-i18n="menu_contact">Contacto</a>
+        <div class="flex gap-2 ml-4">
+          <button onclick="changeLanguage('en')" class="px-3 py-1 rounded-full text-sm hover:bg-gray-100 transition">EN</button>
+          <button onclick="changeLanguage('es')" class="px-3 py-1 rounded-full text-sm hover:bg-gray-100 transition">ES</button>
+        </div>
+      </nav>
+      <button class="md:hidden text-gray-600">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Sección principal -->
+  <section class="pt-32 pb-20 gradient-bg text-white">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-12 md:mb-0 scroll-animate">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 animate__animated animate__fadeInDown" data-i18n="hero_title">Ilumina con Energía del Sol</h2>
+        <h3 class="text-xl md:text-2xl mb-6 text-green-100" data-i18n="hero_subtitle">Tecnología solar avanzada para un futuro brillante</h3>
+        <p class="text-lg mb-8 text-green-50" data-i18n="hero_description">EcoLuz es un sistema de iluminación solar inteligente que transforma la energía del sol en luz brillante. Ideal para ahorrar electricidad y cuidar el medio ambiente.</p>
+        <div class="flex">
+          <a href="#contacto" class="bg-white text-green-600 px-8 py-3 rounded-full font-medium btn-hover" data-i18n="cta_button">¡Contáctanos ahora!</a>
+        </div>
+      </div>
+      <div class="md:w-1/2 flex justify-center parallax" data-speed="0.2">
+        <img src="logo.png" 
+             alt="Foco Solar EcoLuz" 
+             class="rounded-xl shadow-2xl floating max-w-md w-full">
+      </div>
+    </div>
+  </section>
+
+  <!-- Beneficios -->
+  <section id="beneficios" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 scroll-animate">
+        <h3 class="text-3xl font-bold mb-4 text-green-600" data-i18n="benefits_title">Beneficios Clave</h3>
+        <div class="w-20 h-1 bg-green-500 mx-auto"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition feature-card scroll-animate">
+          <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center text-white mb-6 mx-auto feature-icon">
+            <i class="fas fa-leaf text-2xl"></i>
+          </div>
+          <h4 class="text-xl font-semibold mb-3 text-center" data-i18n="benefit_eco">Ecológico</h4>
+          <p class="text-gray-600 text-center" data-i18n="benefit_eco_desc">Reduce la huella de carbono al usar energía 100% renovable con cero emisiones.</p>
+        </div>
+        <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition feature-card scroll-animate">
+          <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center text-white mb-6 mx-auto feature-icon">
+            <i class="fas fa-piggy-bank text-2xl"></i>
+          </div>
+          <h4 class="text-xl font-semibold mb-3 text-center" data-i18n="benefit_economic">Ahorro Garantizado</h4>
+          <p class="text-gray-600 text-center" data-i18n="benefit_economic_desc">Reduce tu factura eléctrica hasta un 70% desde el primer mes de uso.</p>
+        </div>
+        <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition feature-card scroll-animate">
+          <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center text-white mb-6 mx-auto feature-icon">
+            <i class="fas fa-tools text-2xl"></i>
+          </div>
+          <h4 class="text-xl font-semibold mb-3 text-center" data-i18n="benefit_install">Instalación Inteligente</h4>
+          <p class="text-gray-600 text-center" data-i18n="benefit_install_desc">Sistema plug & play sin cables ni complicaciones. Funciona en cualquier lugar.</p>
+        </div>
+        <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition feature-card scroll-animate">
+          <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center text-white mb-6 mx-auto feature-icon">
+            <i class="fas fa-shield-alt text-2xl"></i>
+          </div>
+          <h4 class="text-xl font-semibold mb-3 text-center" data-i18n="benefit_durable">Durabilidad</h4>
+          <p class="text-gray-600 text-center" data-i18n="benefit_durable_desc">Diseñado para resistir condiciones climáticas extremas con 5 años de garantía.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Características -->
+  <section id="caracteristicas" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 scroll-animate">
+        <h3 class="text-3xl font-bold mb-4 text-green-600" data-i18n="features_title">Tecnología Avanzada</h3>
+        <p class="text-xl text-gray-600" data-i18n="features_subtitle">Innovación que ilumina</p>
+        <div class="w-20 h-1 bg-green-500 mx-auto mt-4"></div>
+      </div>
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-8 scroll-animate">
+          <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition">
+            <div class="w-14 h-14 gradient-bg rounded-full flex items-center justify-center text-white mb-4">
+              <i class="fas fa-solar-panel text-xl"></i>
+            </div>
+            <h4 class="text-xl font-semibold mb-3" data-i18n="feature1_title">Panel Solar de Alta Eficiencia</h4>
+            <p class="text-gray-600" data-i18n="feature1_desc">Captura hasta un 25% más de energía que paneles convencionales.</p>
+          </div>
+          <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition">
+            <div class="w-14 h-14 gradient-bg rounded-full flex items-center justify-center text-white mb-4">
+              <i class="fas fa-battery-full text-xl"></i>
+            </div>
+            <h4 class="text-xl font-semibold mb-3" data-i18n="feature2_title">Batería de Larga Duración</h4>
+            <p class="text-gray-600" data-i18n="feature2_desc">Almacenamiento de energía para hasta 3 noches consecutivas sin sol.</p>
+          </div>
+          <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition">
+            <div class="w-14 h-14 gradient-bg rounded-full flex items-center justify-center text-white mb-4">
+              <i class="fas fa-lightbulb text-xl"></i>
+            </div>
+            <h4 class="text-xl font-semibold mb-3" data-i18n="feature3_title">Foco led de alta eficiencia</h4>
+            <p class="text-gray-600" data-i18n="feature3_desc">Uso de bombilla LED que se ocupa reduce el consumo de energía eléctrica en el hogar y en cualquier otro espacio. Su eficiencia, durabilidad, calidad y respeto por el medio ambiente la convierten en la solución ideal para iluminar de forma sostenible y económica.</p>
+          </div>
+          <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition">
+            <div class="w-14 h-14 gradient-bg rounded-full flex items-center justify-center text-white mb-4">
+              <i class="fas fa-certificate text-xl"></i>
+            </div>
+            <h4 class="text-xl font-semibold mb-3" data-i18n="feature4_title">Diseño ecológico y durable</h4>
+            <p class="text-gray-600" data-i18n="feature4_desc">Nuestra lámpara está diseñada pensando en el planeta: fabricada con materiales reciclables, resistente al clima, y con una larga vida útil, ofrece iluminación eficiente y ecológica, ideal para un futuro más limpio y sostenible.</p>
+          </div>
+        </div>
+        <div class="lg:w-1/2 flex justify-center scroll-animate">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1551269901-5c5e14c25df7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+                 alt="Tecnología EcoLuz" 
+                 class="rounded-xl shadow-2xl max-w-md w-full">
+            <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg">
+              <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center text-white pulse">
+                <i class="fas fa-bolt text-2xl"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo funciona -->
+  <section id="funcionamiento" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 scroll-animate">
+        <h3 class="text-3xl font-bold mb-4 text-green-600" data-i18n="how_title">Cómo Funciona EcoLuz</h3>
+        <div class="w-20 h-1 bg-green-500 mx-auto"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="scroll-animate">
+          <div class="how-step">
+            <div class="how-step-number">1</div>
+            <h4 class="text-xl font-semibold mb-2" data-i18n="how_step1">Captación Solar</h4>
+            <p class="text-gray-600" data-i18n="how_step1_desc">Los paneles absorben la energía solar durante el día</p>
+          </div>
+          <div class="how-step">
+            <div class="how-step-number">2</div>
+            <h4 class="text-xl font-semibold mb-2" data-i18n="how_step2">Almacenamiento</h4>
+            <p class="text-gray-600" data-i18n="how_step2_desc">La energía se guarda en baterías de alta capacidad</p>
+          </div>
+        </div>
+        <div class="scroll-animate">
+          <div class="how-step">
+            <div class="how-step-number">3</div>
+            <h4 class="text-xl font-semibold mb-2" data-i18n="how_step3">Distribución</h4>
+            <p class="text-gray-600" data-i18n="how_step3_desc">La energía se convierte y distribuye según necesidad</p>
+          </div>
+          <div class="how-step">
+            <div class="how-step-number">4</div>
+            <h4 class="text-xl font-semibold mb-2" data-i18n="how_step4">Disfruta</h4>
+            <p class="text-gray-600" data-i18n="how_step4_desc">Iluminación automática cuando la necesites</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Comparativa -->
+  <section id="comparativa" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 scroll-animate">
+        <h3 class="text-3xl font-bold mb-4 text-green-600" data-i18n="compare_title">EcoLuz vs. Iluminación Tradicional</h3>
+        <div class="w-20 h-1 bg-green-500 mx-auto"></div>
+      </div>
+      <div class="overflow-x-auto scroll-animate">
+        <table class="comparison-table w-full">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="text-green-600" data-i18n="compare_ecoluz">EcoLuz</th>
+              <th data-i18n="compare_traditional">Tradicional</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-i18n="compare_cost">Costo anual</td>
+              <td class="highlight text-green-600" data-i18n="compare_cost_ecoluz">$600</td>
+              <td data-i18n="compare_cost_trad">$3,500</td>
+            </tr>
+            <tr>
+              <td data-i18n="compare_lifespan">Vida útil</td>
+              <td class="highlight" data-i18n="compare_lifespan_ecoluz">10 años</td>
+              <td data-i18n="compare_lifespan_trad">2 años</td>
+            </tr>
+            <tr>
+              <td data-i18n="compare_energy">Consumo</td>
+              <td class="highlight" data-i18n="compare_energy_ecoluz">0 kWh</td>
+              <td data-i18n="compare_energy_trad">350 kWh/año</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galería de Imágenes -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 scroll-animate">
+      <h3 class="text-3xl font-bold mb-4 text-green-600">EcoLuz en Acción</h3>
+      <p class="text-xl text-gray-600">Descubre cómo nuestros clientes están transformando sus espacios</p>
+      <div class="w-20 h-1 bg-green-500 mx-auto mt-4"></div>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 scroll-animate">
+      <!-- Imagen 1 -->
+      <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+             alt="EcoLuz en jardín" 
+             class="w-full h-64 object-cover transform hover:scale-105 transition duration-500">
+        <div class="p-4 bg-white">
+          <h4 class="font-semibold text-lg text-gray-800">Iluminación de Jardín</h4>
+          <p class="text-gray-600">Perfecta para áreas exteriores</p>
+        </div>
+      </div>
+      
+      <!-- Imagen 2 -->
+      <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+             alt="EcoLuz en entrada" 
+             class="w-full h-64 object-cover transform hover:scale-105 transition duration-500">
+        <div class="p-4 bg-white">
+          <h4 class="font-semibold text-lg text-gray-800">Entrada Principal</h4>
+          <p class="text-gray-600">Seguridad y elegancia</p>
+        </div>
+      </div>
+      
+      <!-- Imagen 3 -->
+      <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+        <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80" 
+             alt="EcoLuz en patio" 
+             class="w-full h-64 object-cover transform hover:scale-105 transition duration-500">
+        <div class="p-4 bg-white">
+          <h4 class="font-semibold text-lg text-gray-800">Área de Patio</h4>
+          <p class="text-gray-600">Ambientación perfecta</p>
+        </div>
+      </div>
+      
+      <!-- Imagen 4 -->
+      <div class="overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+        <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+             alt="EcoLuz en camino" 
+             class="w-full h-64 object-cover transform hover:scale-105 transition duration-500">
+        <div class="p-4 bg-white">
+          <h4 class="font-semibold text-lg text-gray-800">Senderos Iluminados</h4>
+          <p class="text-gray-600">Guía tu camino de forma ecológica</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Texto descriptivo opcional -->
+    <div class="mt-12 text-center max-w-3xl mx-auto scroll-animate">
+      <p class="text-gray-600">Nuestros focos solares EcoLuz están diseñados para adaptarse a cualquier espacio exterior, proporcionando iluminación eficiente mientras cuidas del medio ambiente.</p>
+    </div>
+  </div>
+</section>
+
+  <!-- Testimonios -->
+  <section id="testimonios" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 scroll-animate">
+        <h3 class="text-3xl font-bold mb-4 text-green-600" data-i18n="testimonials_title">Clientes Satisfechos</h3>
+        <div class="w-20 h-1 bg-green-500 mx-auto"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white p-8 rounded-xl shadow-md testimonial-card scroll-animate">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center text-white mr-4">
+              <i class="fas fa-user"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold">Carlos M.</h4>
+              <p class="text-gray-500 text-sm">Jalisco</p>
+            </div>
+          </div>
+          <p class="text-gray-700 italic mb-4" data-i18n="testimonial1">"Desde que instalé EcoLuz, mi factura bajó un 60%. ¡Increíble!"</p>
+          <div class="flex text-yellow-400">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow-md testimonial-card scroll-animate">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center text-white mr-4">
+              <i class="fas fa-user"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold">Ana T.</h4>
+              <p class="text-gray-500 text-sm">Quintana Roo</p>
+            </div>
+          </div>
+          <p class="text-gray-700 italic mb-4" data-i18n="testimonial2">"La instalación fue tan fácil que lo hice yo mismo en 10 minutos. Funciona perfecto!"</p>
+          <div class="flex text-yellow-400">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="py-20 gradient-bg text-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 scroll-animate">
+        <h3 class="text-3xl font-bold mb-4" data-i18n="contact_title">¿Listo para el cambio?</h3>
+        <p class="text-xl text-green-100" data-i18n="contact_subtitle">Únete a la revolución solar</p>
+        <div class="w-20 h-1 bg-white mx-auto mt-4"></div>
+      </div>
+      <div class="flex flex-col lg:flex-row gap-12">
+        <div class="lg:w-1/2 scroll-animate">
+          <form class="bg-white rounded-xl shadow-lg p-8 text-gray-800">
+            <div class="mb-6">
+              <label class="block text-gray-700 mb-2" data-i18n="contact_name">Nombre</label>
+              <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+            </div>
+            <div class="mb-6">
+              <label class="block text-gray-700 mb-2" data-i18n="contact_email">Email</label>
+              <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+            </div>
+            <div class="mb-6">
+              <label class="block text-gray-700 mb-2" data-i18n="contact_phone">Teléfono</label>
+              <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+            </div>
+            <div class="mb-6">
+              <label class="block text-gray-700 mb-2" data-i18n="contact_message">Mensaje</label>
+              <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+            </div>
+            <button type="submit" class="w-full gradient-bg text-white px-6 py-3 rounded-lg font-medium btn-hover" data-i18n="contact_button">Enviar consulta</button>
+          </form>
+        </div>
+        <div class="lg:w-1/2 flex flex-col justify-center scroll-animate">
+          <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-blur-sm">
+            <h4 class="text-2xl font-semibold mb-6" data-i18n="footer_contact">Contacto</h4>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <i class="fas fa-map-marker-alt mt-1 mr-4 text-green-300"></i>
+                <p data-i18n="footer_address">Wix Ecomerce</p>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-envelope mr-4 text-green-300"></i>
+                <p data-i18n="footer_email">hola@ecoluz.mx</p>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-phone-alt mr-4 text-green-300"></i>
+                <p data-i18n="footer_phone">+52 55 3654 9308</p>
+              </div>
+            </div>
+            <div class="mt-8">
+              <h5 class="text-xl font-semibold mb-4" data-i18n="footer_social">Síguenos</h5>
+              <div class="flex gap-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-opacity-30 transition">
+                  <i class="fab fa-youtube"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="scroll-animate">
+          <h5 class="text-lg font-semibold text-white mb-4" data-i18n="footer_about">Sobre EcoLuz</h5>
+          <p class="mb-4" data-i18n="footer_about_text">Líderes en tecnología solar residencial desde 2020.</p>
+          <div class="w-16 h-1 bg-green-500 mb-4"></div>
+          <div class="flex gap-4">
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+        <div class="scroll-animate">
+          <h5 class="text-lg font-semibold text-white mb-4" data-i18n="footer_links">Enlaces rápidos</h5>
+          <ul class="space-y-2">
+            <li><a href="#beneficios" class="hover:text-white transition" data-i18n="menu_benefits">Beneficios</a></li>
+            <li><a href="#caracteristicas" class="hover:text-white transition" data-i18n="menu_features">Características</a></li>
+            <li><a href="#funcionamiento" class="hover:text-white transition" data-i18n="menu_how">Cómo Funciona</a></li>
+            <li><a href="#comparativa" class="hover:text-white transition" data-i18n="menu_compare">Comparativa</a></li>
+            <li><a href="#contacto" class="hover:text-white transition" data-i18n="menu_contact">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="scroll-animate">
+          <h5 class="text-lg font-semibold text-white mb-4" data-i18n="footer_contact">Contacto</h5>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-3 text-green-500"></i>
+              <span data-i18n="footer_address">Wix Ecomerce</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-3 text-green-500"></i>
+              <span data-i18n="footer_email">hola@ecoluz.mx</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone-alt mr-3 text-green-500"></i>
+              <span data-i18n="footer_phone">+52 55 3654 9308</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center scroll-animate">
+        <p data-i18n="footer_text">© 2025 EcoLuz. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a href="https://wa.me/525536549308" target="_blank" class="fixed bottom-8 right-8 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-green-600 transition animate__animated animate__fadeInUp animate__delay-1s">
+    <i class="fab fa-whatsapp text-2xl"></i>
+  </a>
+</body>
+</html>
